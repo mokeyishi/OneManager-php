@@ -357,7 +357,8 @@ class Onedrive {
         //return output($result['body'], $result['stat']);
     }
     public function Encrypt($folder, $passfilename, $pass) {
-        $filename = path_format($folder['path'] . '/' . urlencode($passfilename));
+        //$filename = path_format($folder['path'] . '/' . urlencode($passfilename));
+        $filename = '/items/' . $folder['id'] . ':/' . urlencode($passfilename);
         if ($pass==='') {
             $result = $this->MSAPI('DELETE', $filename);
         } else {
